@@ -8,6 +8,12 @@ class Usuario:
 
         conex, cur = Conexao().conectar()
         cur.execute("""
-                    
-                    """)
+                    INSERT INTO tb_usuarios(usuario, senha)
+                    VALUES (%s, %s)
+                    """,
+                    [login, senha])
+
+        conex.commit()
+        conex.close()
+        return True
 
