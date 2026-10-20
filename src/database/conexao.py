@@ -14,7 +14,7 @@ class Conexao:
                                             user= "root",
                                             password="root",
                                             database="bd_godofin")
-            cursor = conexao.cursor()
+            cursor = conexao.cursor(dictionary=True)
 
             return conexao, cursor
 
