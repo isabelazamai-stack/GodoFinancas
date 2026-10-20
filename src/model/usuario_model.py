@@ -8,7 +8,7 @@ class Usuario:
         conex, cur = Conexao().conectar()
 
         if not conex:
-            print("Erro ao tentar conectar!")
+            print("Erro ao conectar!")
             return False
 
         try:
