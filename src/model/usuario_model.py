@@ -27,5 +27,25 @@ class Usuario:
             print(f"ERRO AO INSERIR:{e}")
             return False
 
-    
+    @staticmethod
+    def verificar(login:str, senha=str) -> dict:
+        conex, cur = Conexao().conectar()
+
+        if not conex:
+            print("Login e senha verificado")
+            return {}
+
+        
+        cur.execute("""
+                    select * from tb_usuarios
+                    where usuario = %s
+                    and senha = %s
+                    """,
+                    [login, senha])
+
+        cur.fetchone()
+
+        
+
+        
 
