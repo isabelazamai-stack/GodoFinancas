@@ -12,8 +12,8 @@ class Conexao:
             conexao = mysql.connector.connect(host="127.0.0.1",
                                             port="3306",
                                             user= "root",
-                                            password="godogodo",
-                                            database="bd_godofinancas")
+                                            password="root",
+                                            database="bd_godofin")
             cursor = conexao.cursor()
 
             return conexao, cursor
@@ -21,9 +21,3 @@ class Conexao:
         except Exception as e:
             print(f"ERRO: {e}")
             return None, None
-
-        
-
-    
-
-    
