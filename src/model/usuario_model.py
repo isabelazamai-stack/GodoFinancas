@@ -32,18 +32,21 @@ class Usuario:
         conex, cur = Conexao().conectar()
 
         if not conex:
-            print("Login e senha verificado")
-            return {}
+            print("ERRO AO TENTAR CONECTAR")
+            return None
 
-        
         cur.execute("""
-                    select * from tb_usuarios
+                    select id_usuario, usuario, senha from tb_usuarios
                     where usuario = %s
                     and senha = %s
                     """,
                     [login, senha])
 
-        cur.fetchone()
+        resultado = cur.fetchone()
+
+        conex.close()
+
+        return resultado
 
         
 
