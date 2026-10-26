@@ -3,7 +3,7 @@ class Categoria:
     def __init__(self):
         pass
 
-    @staticmethod:
+    @staticmethod
     def adicionar (nome_categoria:str, id_usuario: int) -> int:
         conexao, cursor = Conexao().conectar()
 
@@ -24,8 +24,8 @@ class Categoria:
             return id_categoria
         
         except Exception as e:
-            print(f"ERRO AO ADICIONAR:{e}")
-            return False
+            print(f"Errro em cadastrar: {e}")
+            return None
 
 
     #recuperar todos
