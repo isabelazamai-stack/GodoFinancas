@@ -59,8 +59,8 @@ class Categoria:
             return False
         try:
             cursor.execute("""
-                            DELETE FROM tb_categoria(id_categoria)
-                            VALUES (%s)
+                            DELETE FROM tb_categoria(id_usuario)
+                            WHERE id_usuario = %s
                             """,
                             [id_categoria])
             conexao.commit()
