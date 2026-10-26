@@ -52,29 +52,32 @@ class Categoria:
 
         except Exception as e:
             print(f"ERRO AO ADICIONAR:{e}")
-            return None
+            return False
         
 
 
     #recuperar todos
     @staticmethod
-    def recuperar_todos (categoria: int, login:str) -> dict:
+    def recuperar_todos (id_usuario:str) -> list:
         conexao, cursor = Conexao().conectar()
 
         if not conexao:
             print("Erro ao conectar!")
-            return False
+            return None
         try:
             cursor.execute("""
-                            INSERT INTO tb_categoria(id_categoria, login)
-                            VALUES (%s, %s)
+                            SELECT id_categoria, nome, id_usuario
+                            FROM tb_categoria
+                            WHERE id_usuario = %s
                             """,
-                            [categoria, login])
-            conexao.commit()
-            conexao.close()
-            return True
+                            [id_usuario])
+                
+            categorias = cursor.fetchall()
 
+            conexao.close()
+            return categorias
+        
         except Exception as e:
-            print(f"ERRO AO ADICIONAR:{e}")
-            return False
+            print(f"Erro ao excluir: {e}")
+            return None
         
