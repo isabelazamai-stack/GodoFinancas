@@ -4,21 +4,25 @@ class Categoria:
         pass
 
     @staticmethod:
-    def adicionar (categoria:int) -> bool:
+    def adicionar (nome_categoria:str, id_usuario: int) -> int:
         conexao, cursor = Conexao().conectar()
 
         if not conexao:
-            print("Erro ao conectar")
-            return False
+            print("Erro ao conectar!")
+            return None
         try:
             cursor.execute("""
-                        INSERT INTO tb_categoria(categoria)
-                        VALUES (%s)
+                        INSERT INTO tb_categoria(nome, id_usuario)
+                        VALUES (%s, %s)
                         """,
-                        [categoria])
+                        [nome_categoria, id_usuario])
+            
+            id_categoria = cursor.lastrowid
+            
             conexao.commit()
             conexao.close()
-            return True
+            return id_categoria
+        
         except Exception as e:
             print(f"ERRO AO ADICIONAR:{e}")
             return False
@@ -55,7 +59,7 @@ class Categoria:
             return False
         try:
             cursor.execute("""
-                            INSERT INTO tb_categoria(id_categoria)
+                            DELETE FROM tb_categoria(id_categoria)
                             VALUES (%s)
                             """,
                             [id_categoria])
