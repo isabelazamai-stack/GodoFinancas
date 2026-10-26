@@ -1,4 +1,4 @@
 from src.model.categoria_model import Categoria
 
-resultado = Categoria().excluir(3)
+resultado = Categoria().excluir(7)
 print(resultado)

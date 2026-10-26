@@ -1,4 +1,5 @@
 from src.database.conexao import Conexao
+
 class Categoria:
     def __init__(self):
         pass
@@ -25,44 +26,50 @@ class Categoria:
         
         except Exception as e:
             print(f"Errro em cadastrar: {e}")
-            return None
+            return False
+        
 
 
-    #recuperar todos
     @staticmethod
-    def recuperar_todos (categoria: int, login:str) -> dict:
-        conexao, cursor = conexao().conectar()
+    def excluir (id_categoria: int) -> bool:
+        conexao, cursor = Conexao().conectar()
 
         if not conexao:
             print("Erro ao conectar!")
-            return False
+            return None
+        
         try:
             cursor.execute("""
-                            INSERT INTO tb_categoria(categoria, login)
-                            VALUES (%s, %s)
+                            DELETE FROM tb_categoria
+                            WHERE id_categoria = %s
                             """,
-                            [categoria, login])
+                            [id_categoria])
+        
+
             conexao.commit()
             conexao.close()
             return True
 
         except Exception as e:
             print(f"ERRO AO ADICIONAR:{e}")
-            return False
+            return None
+        
 
+
+    #recuperar todos
     @staticmethod
-    def excluir (id_categoria: int) -> bool:
-        conexao, cursor = conexao().conectar()
+    def recuperar_todos (categoria: int, login:str) -> dict:
+        conexao, cursor = Conexao().conectar()
 
         if not conexao:
             print("Erro ao conectar!")
             return False
         try:
             cursor.execute("""
-                            DELETE FROM tb_categoria(id_usuario)
-                            WHERE id_usuario = %s
+                            INSERT INTO tb_categoria(id_categoria, login)
+                            VALUES (%s, %s)
                             """,
-                            [id_categoria])
+                            [categoria, login])
             conexao.commit()
             conexao.close()
             return True
