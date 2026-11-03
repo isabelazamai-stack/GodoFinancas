@@ -1,4 +1,4 @@
-from src.model.usuario_model import Usuario
+from src.model.despesa_model import Despesa
 
-usuario = Usuario().cadastrar("Transporte", 1)
+usuario = Despesa().incluir("Transporte", 1)
 print(usuario)
