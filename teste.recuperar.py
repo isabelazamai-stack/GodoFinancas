@@ -1,4 +1,4 @@
-from src.model.categoria_model import Categoria
+from src.model.despesa_model import Despesa
 
-resultado = Categoria().recuperar_todos(1)
+resultado = Despesa().recuperar_todos(1)
 print(resultado)

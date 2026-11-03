@@ -1,4 +1,4 @@
-from src.model.categoria_model import Categoria
+from src.model.despesa_model import Despesa
 
-resultado = Categoria().excluir(10)
+resultado = Despesa().excluir(10)
 print(resultado)

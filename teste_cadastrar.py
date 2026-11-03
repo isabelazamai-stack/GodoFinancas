@@ -1,5 +1,5 @@
-from src.model.categoria_model import Categoria
+from src.model.despesa_model import Despesa
 
-categoria = Categoria().adicionar("Transporte", 1)
+categoria = Despesa().incluir("alex", 1)
 print(categoria)
 
