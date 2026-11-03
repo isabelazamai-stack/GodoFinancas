@@ -1,5 +1,5 @@
-from src.model.despesa_model import Despesa
+from src.model.usuario_model import Usuario
 
-categoria = Despesa().incluir("alex", 1)
+categoria = Usuario().cadastrar("alex", 1)
 print(categoria)
 

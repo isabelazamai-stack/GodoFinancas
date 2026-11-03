@@ -1,4 +1,5 @@
 from src.model.despesa_model import Despesa
 
-usuario = Despesa().incluir("Transporte", 1)
-print(usuario)
+despesa = Despesa().incluir(1, 1, "Lazer", "2.500", "2026-04-14")
+print(despesa)
+

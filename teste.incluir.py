@@ -1,4 +1,4 @@
-from src.model.despesa_model import Despesa
+from src.model.categoria_model import Categoria
 
-resultado = Despesa().incluir()
+resultado = Categoria().adicionar("alex", 1)
 print(resultado)
