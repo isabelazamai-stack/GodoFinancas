@@ -18,24 +18,25 @@ class CadastroUsuarioView(ft.View):
         titulo = ft.Text(value = "CRIAR NOVA CONTA",
                           size=30,
                           color="#000000",
-                          font_family="Britannic Bold")
+                          font_family="Georgia")
 
 
         subtitulo = ft.Text(value = "PREENCHA OS DADOS ABAIXO",
                             size=15,
-                            color="#000000")
+                            color="#000000",
+                            font_family="Times New Roman")
 
 
         self.campo_usuario = ft.TextField(label = "Usuário:",
-                                bgcolor = "#fcc2cf",
-                                border_color= "#ff92ad",
-                                border_width= 3,
-                                value = "")
+                                        bgcolor = "#fcc2cf",
+                                        border_color= "#ff92ad",
+                                        border_width= 3,
+                                        value = "")
 
 
         self.campo_senha = ft.TextField(label = "Senha:",
-                                    password = True,
-                                    can_reveal_password = True,
+                                        password = True,
+                                        can_reveal_password = True,
                                         bgcolor = "#fcc2cf",
                                         border_color= "#ff92ad",
                                         border_width= 3,
@@ -74,4 +75,12 @@ class CadastroUsuarioView(ft.View):
     def cadastrar(self):
       usuario = self.campo_usuario.value
       senha = self.campo_senha.value
-      Usuario().cadastrar(usuario,senha)
+      
+      if Usuario().cadastrar(usuario,senha) :
+
+         
+
+      
+         
+
+    
