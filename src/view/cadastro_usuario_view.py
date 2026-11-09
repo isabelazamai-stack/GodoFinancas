@@ -61,6 +61,7 @@ class CadastroUsuarioView(ft.View):
                                 height= 45,
                                 color= "#000000",
                                 bgcolor= "#FFE59D",
+                                on_click=self.ir_pro_login,
                                 )
         
         linha = ft.Row(controls=[botao_cadastrar,
@@ -89,6 +90,8 @@ class CadastroUsuarioView(ft.View):
         else:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro não efetuado"), bgcolor="#ff9191"))
             #snackBar que deu errado
-            
 
-        
+    async def ir_pro_login(self):
+        await self.pagina.push_route("/login")
+
+
