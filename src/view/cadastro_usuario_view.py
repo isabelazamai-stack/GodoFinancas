@@ -26,7 +26,7 @@ class CadastroUsuarioView(ft.View):
 
 
         subtitulo = ft.Text(value = "Preecha os dados abaixo",
-                            size=15,
+                            size=20,
                             color="#000000",
                             font_family="Times New Roman")
 
@@ -46,7 +46,7 @@ class CadastroUsuarioView(ft.View):
                                         border_width= 3,
                                         value = "")
 
-
+        
         botao_cadastrar = ft.Button(content = "Cadastrar-se",
                         width= 140,
                         height= 45,
@@ -54,6 +54,11 @@ class CadastroUsuarioView(ft.View):
                         bgcolor= "#FFE59D",
                         on_click = self.cadastrar
                         )
+
+        ja_tem_conta = ft.Text(value = "Já tem uma conta?",
+                                            size=20,
+                                            color="#000000",
+                                            font_family="Times New Roman")
 
 
         botao_entrar = ft.Button(content = "Entrar",
@@ -63,18 +68,16 @@ class CadastroUsuarioView(ft.View):
                                 bgcolor= "#FFE59D",
                                 on_click=self.ir_pro_login,
                                 )
-        
-        linha = ft.Row(controls=[botao_cadastrar,
-                                botao_entrar,],
-                                alignment="center",
-                                spacing=20)
 
 
         self.controls =[titulo,
                         subtitulo,
                         self.campo_usuario,
                         self.campo_senha,
-                        linha]
+                        botao_cadastrar,
+                        ja_tem_conta,
+                        botao_entrar,
+                        ]
 
   
     def cadastrar(self):
