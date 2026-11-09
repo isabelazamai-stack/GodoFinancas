@@ -8,6 +8,8 @@ class CadastroUsuarioView(ft.View):
 
         self.pagina = pagina
 
+        self.route = "/cadastro"
+
 
         self.title = ""
         self.bgcolor = "#FFF6C0"
@@ -23,7 +25,7 @@ class CadastroUsuarioView(ft.View):
                           font_family="Georgia")
 
 
-        subtitulo = ft.Text(value = "PREENCHA OS DADOS ABAIXO",
+        subtitulo = ft.Text(value = "Preecha os dados abaixo",
                             size=15,
                             color="#000000",
                             font_family="Times New Roman")
@@ -81,11 +83,11 @@ class CadastroUsuarioView(ft.View):
         resultado = Usuario().cadastrar(usuario , senha)
 
         if resultado == True:
-            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro efetuado com sucesso"), bgcolor="#ff96ad"))
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro efetuado com sucesso"), bgcolor="#e3ffb7"))
             #snackBar que deu certo
 
         else:
-            pass
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro não efetuado"), bgcolor="#ff9191"))
             #snackBar que deu errado
             
 
