@@ -63,7 +63,7 @@ class LoginUsuarioView(ft.View):
                                 height= 45,
                                 color= "#000000",
                                 bgcolor= "#FFE59D",
-                                on_click=self.ir_pro_cadastrar
+                                on_click=self.ir_para_cadastrar
                                 )
 
 
@@ -83,13 +83,14 @@ class LoginUsuarioView(ft.View):
         resultado = Usuario().verificar(usuario , senha)
 
         if resultado:
-            self.pagina.show_dialog(ft.SnackBar(ft.Text("Login efetuado com sucesso"), bgcolor="#9fb67b"))
-            #snackBar que deu certo
+            self.ir_para_principal()
+            #funcao para ir para página principal
 
         else:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Login não efetuado. Tente novamente"), bgcolor="#ff9191"))
-            #snackBar que deu errado
 
-    
-    async def ir_pro_cadastrar(self):
+    async def ir_para_cadastrar(self):
         await self.pagina.push_route("/cadastro")
+
+    async def ir_para_principal(self):
+        await self.pagina.push_route("/principal")
