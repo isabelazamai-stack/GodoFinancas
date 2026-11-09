@@ -83,7 +83,7 @@ class CadastroUsuarioView(ft.View):
         resultado = Usuario().cadastrar(usuario , senha)
 
         if resultado == True:
-            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro efetuado com sucesso"), bgcolor="#e3ffb7"))
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro efetuado com sucesso"), bgcolor="#9fb67b"))
             #snackBar que deu certo
 
         else:
