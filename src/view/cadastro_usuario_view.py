@@ -6,6 +6,8 @@ class CadastroUsuarioView(ft.View):
     def __init__(self, pagina:ft.Page):
         super().__init__()
 
+        self.pagina = pagina
+
 
         self.title = ""
         self.bgcolor = "#FFF6C0"
@@ -73,14 +75,18 @@ class CadastroUsuarioView(ft.View):
 
   
     def cadastrar(self):
-      usuario = self.campo_usuario.value
-      senha = self.campo_senha.value
+        usuario = self.campo_usuario.value
+        senha = self.campo_senha.value
       
-      if Usuario().cadastrar(usuario,senha) :
+        resultado = Usuario().cadastrar(usuario , senha)
 
-         
+        if resultado == True:
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro efetuado com sucesso"), bgcolor="#ff96ad"))
+            #snackBar que deu certo
 
-      
-         
+        else:
+            pass
+            #snackBar que deu errado
+            
 
-    
+        
