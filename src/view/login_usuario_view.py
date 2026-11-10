@@ -50,7 +50,7 @@ class LoginUsuarioView(ft.View):
                         height= 45,
                         color= "#000000",
                         bgcolor= "#FFE59D",
-                        on_click=self.logar
+                        on_click=self.ir_para_login
                         )
 
         nao_tem_conta = ft.Text(value = "Não tem uma conta?",
@@ -76,21 +76,22 @@ class LoginUsuarioView(ft.View):
                         botao_cadastrar,
                         ]
 
-    def logar(self):
+    async def ir_para_cadastrar(self):
+        await self.pagina.push_route("/cadastro")
+
+    def ir_para_login(self):
         usuario = self.campo_usuario.value
         senha = self.campo_senha.value
         
         resultado = Usuario().verificar(usuario , senha)
 
         if resultado:
-            self.ir_para_principal()
-            #funcao para ir para página principal
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Login efetuado com sucesso"), bgcolor="#9fb67b"))
+            self.pagina.navigate("/cadastrocategoria")
 
         else:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Login não efetuado. Tente novamente"), bgcolor="#ff9191"))
 
-    async def ir_para_cadastrar(self):
-        await self.pagina.push_route("/cadastro")
+    
 
-    async def ir_para_principal(self):
-        await self.pagina.push_route("/principal")
+    

@@ -17,12 +17,12 @@ class PaginaUsuarioView(ft.View):
         self.height = 800 #altura da janela
         self.width = 1000 # largura da janela
 
-        titulo = ft.Text(value = "Entrar no Sistema",
+        titulo = ft.Text(value = "Tela Principal",
                         size=30,
                         color="#000000",
                         font_family="Georgia")
         
-        subtitulo = ft.Text(value = "Insira suas informações:",
+        subtitulo = ft.Text(value = "Você está logado",
                             size=20,
                             color="#000000",
                             font_family="Times New Roman")

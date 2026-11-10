@@ -19,13 +19,13 @@ class CadastroUsuarioView(ft.View):
         self.width = 1000 # largura da janela
 
 
-        titulo = ft.Text(value = "CRIAR NOVA CONTA",
+        titulo = ft.Text(value = "Criar nova conta",
                           size=30,
                           color="#000000",
                           font_family="Georgia")
 
 
-        subtitulo = ft.Text(value = "Preecha os dados abaixo",
+        subtitulo = ft.Text(value = "Preencha os dados abaixo",
                             size=20,
                             color="#000000",
                             font_family="Times New Roman")
@@ -86,7 +86,7 @@ class CadastroUsuarioView(ft.View):
       
         resultado = Usuario().cadastrar(usuario , senha)
 
-        if resultado == True:
+        if resultado:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro efetuado com sucesso"), bgcolor="#9fb67b"))
             #snackBar que deu certo
 
