@@ -42,7 +42,9 @@ class LoginUsuarioView(ft.View):
                                         bgcolor = "#dbe7e4",
                                         border_color= "#c5dedc",
                                         border_width= 3,
-                                        value = "")
+                                        on_submit=lambda e: self.ir_para_login(),
+                                        value = "",
+                                        )
 
         
         botao_entrar = ft.Button(content = "Entrar",
@@ -88,7 +90,7 @@ class LoginUsuarioView(ft.View):
         if resultado:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Login efetuado com sucesso"), bgcolor="#9fb67b"))
             self.pagina.session.store.set("usuario_logado",resultado)
-            self.pagina.navigate("/cadastrocategoria")
+            self.pagina.navigate("/telaprincipal")
 
         else:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Login não efetuado. Tente novamente"), bgcolor="#ff9191"))

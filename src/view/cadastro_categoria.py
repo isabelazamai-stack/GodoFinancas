@@ -1,4 +1,5 @@
 import flet as ft
+from src.model.categoria_model import Categoria
 
 
 class CadastroCategoriaView(ft.View):
@@ -9,17 +10,31 @@ class CadastroCategoriaView(ft.View):
 
         self.route = "/cadastrocategoria"
 
-        self.title = ""
-        self.bgcolor = "#dbe7e4"
-        self.horizontal_alignment = "center"
-        self.vertical_alignment = "center"
+        self.title = ft.Text(value="Cadastre as Categoria",
+                             color="#000000",
+                             horizontal_alignment = "center",
+                             font_family="Georgia",
+                             size=30,)
+
+        self.campo_usuario = ft.TextField(label = "Categorias:",
+                                                bgcolor = "#dbe7e4",
+                                                border_color= "#c5dedc",
+                                                border_width= 3,
+                                                value = "")
+
+        self.botao_adicionar = ft.Button(content = "Adicionar",
+                                width= 140,
+                                height= 45,
+                                color= "#000000",
+                                bgcolor= "#fad2e1"
+                                )
+        
         self.height = 800 #altura da janela
         self.width = 1000 # largura da janela
 
-        titulo = ft.Text(value = "Tela categoria",
-                        size=30,
-                        color="#000000",
-                        font_family="Georgia")
+        self.controls =[self.title,
+                        self.campo_usuario,
+                        self.botao_adicionar]
 
-        self.controls =[titulo
-                        ]
+    # def adicionar(self):
+        
