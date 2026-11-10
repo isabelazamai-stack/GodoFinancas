@@ -1,7 +1,10 @@
 import flet as ft
 from src.view.cadastro_usuario_view import CadastroUsuarioView
 from src.view.login_usuario_view import LoginUsuarioView
-from src.view.pagina_principal import PaginaUsuarioView
+from src.view.tela_principal import TelaPrincipal
+from src.view.cadastro_categoria import CadastroCategoriaView
+from src.view.add_despesa import AdicionarDespesaView
+from src.view.todas_despesas import VisualizarDespesaView
 
 
 def main(pagina:ft.Page):
@@ -11,9 +14,9 @@ def main(pagina:ft.Page):
         if item_clicado == 0:
             pagina.navigate("/cadastrocategoria")
         elif item_clicado == 1:
-            pagina.navigate("/")
+            pagina.navigate("/despesa")
         elif item_clicado == 2:
-            pagina.navigate("/")
+            pagina.navigate("/todasdespesas")
         elif item_clicado == 3:
             pagina.navigate("/")
         elif item_clicado == 4:
@@ -29,8 +32,14 @@ def main(pagina:ft.Page):
 
     tela_cadastro_usuario = CadastroUsuarioView(pagina)
     tela_login_usuario = LoginUsuarioView(pagina)
-    tela_principal_usuario = PaginaUsuarioView(pagina)
-    tela_principal_usuario.navigation_bar = barra_navegacao
+    cadastro_categoria = CadastroCategoriaView(pagina)
+    cadastro_categoria.navigation_bar = barra_navegacao
+    adicionar_despesa = AdicionarDespesaView(pagina)
+    adicionar_despesa.navigation_bar = barra_navegacao
+    visualizar_despesas = VisualizarDespesaView(pagina)
+    visualizar_despesas.navigation_bar = barra_navegacao
+    tela_principal = TelaPrincipal(pagina)
+    tela_principal.navigation_bar = barra_navegacao
 
 
     #criando a função que fará o roteamento das páginas
@@ -43,8 +52,17 @@ def main(pagina:ft.Page):
         elif pagina.route == "/login":
             pagina.views.append(tela_login_usuario)
 
+        elif pagina.route == "/telaprincipal":
+                    pagina.views.append(tela_principal)
+
         elif pagina.route == "/cadastrocategoria":
-            pagina.views.append(tela_principal_usuario)
+            pagina.views.append(cadastro_categoria)
+
+        elif pagina.route == "/despesa":
+                pagina.views.append(adicionar_despesa)
+
+        elif pagina.route == "/todasdespesas":
+                pagina.views.append(visualizar_despesas)
 
         pagina.update()
 
@@ -53,6 +71,6 @@ def main(pagina:ft.Page):
     roteamento()
 
     #Abrindo a página incial
-    pagina.views.append(tela_login_usuario)
+    pagina.views.append(tela_principal)
 
 ft.run(main)
