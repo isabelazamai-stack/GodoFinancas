@@ -8,7 +8,7 @@ class TelaPrincipal(ft.View):
 
         self.route = "/telaprincipal"
 
-        dados_usuario = pagina.session.get("usuario_logado")
+        dados_usuario = pagina.session.store.get("usuario_logado")
         nome_usuario = dados_usuario.get("usuario")
 
         self.title = ""
@@ -23,5 +23,4 @@ class TelaPrincipal(ft.View):
                         color="#000000",
                         font_family="Georgia")
 
-        self.controls =[titulo
-                        ]
+        self.controls =[titulo]

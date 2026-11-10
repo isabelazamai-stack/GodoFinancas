@@ -87,7 +87,7 @@ class LoginUsuarioView(ft.View):
 
         if resultado:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Login efetuado com sucesso"), bgcolor="#9fb67b"))
-            self.pagina.session.set("usuario_logado",resultado)
+            self.pagina.session.store.set("usuario_logado",resultado)
             self.pagina.navigate("/cadastrocategoria")
 
         else:

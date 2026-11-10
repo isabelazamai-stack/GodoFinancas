@@ -42,7 +42,7 @@ class CadastroUsuarioView(ft.View):
                                         password = True,
                                         can_reveal_password = True,
                                         bgcolor = "#dbe7e4",
-                                        border_color= "##dbe7e4",
+                                        border_color= "#dbe7e4",
                                         border_width= 3,
                                         value = "")
 
