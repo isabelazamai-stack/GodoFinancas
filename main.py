@@ -5,17 +5,32 @@ from src.view.pagina_principal import PaginaUsuarioView
 
 
 def main(pagina:ft.Page):
+
+    def navegacao(componente):
+        item_clicado = componente.control.selected_index
+        if item_clicado == 0:
+            pagina.navigate("/cadastrocategoria")
+        elif item_clicado == 1:
+            pagina.navigate("/")
+        elif item_clicado == 2:
+            pagina.navigate("/")
+        elif item_clicado == 3:
+            pagina.navigate("/")
+        elif item_clicado == 4:
+            pagina.navigate("/login")
     barra_navegacao = ft.NavigationBar(destinations=[
-            ft.NavigationBarDestination(icon=ft.Icons.CIRCLE, label="Categoria"),
-            ft.NavigationBarDestination(icon=ft.Icons.ADD, label="Adicionar Despesa"),
-            ft.NavigationBarDestination(icon=ft.Icons.ADD_ALERT_ROUNDED, label="Todas as Despesas"),
-            ft.NavigationBarDestination(icon=ft.Icons.SIGNAL_CELLULAR_ALT_SHARP, label="Despesa por Categoria")])
+            ft.NavigationBarDestination(icon=ft.Icons.CATEGORY, label="Categoria"),
+            ft.NavigationBarDestination(icon=ft.Icons.ADD_CIRCLE, label="Adicionar Despesa"),
+            ft.NavigationBarDestination(icon=ft.Icons.WALLET_OUTLINED, label="Todas as Despesas"),
+            ft.NavigationBarDestination(ft.Icons.EVENT_NOTE_OUTLINED, label="Despesa por Categoria"),
+            ft.NavigationBarDestination(ft.Icons.ARROW_FORWARD_ROUNDED, label="Sair")],
+            on_change=navegacao)
 
 
     tela_cadastro_usuario = CadastroUsuarioView(pagina)
     tela_login_usuario = LoginUsuarioView(pagina)
-    tela_login_usuario.navigation_bar = barra_navegacao
     tela_principal_usuario = PaginaUsuarioView(pagina)
+    tela_principal_usuario.navigation_bar = barra_navegacao
 
 
     #criando a função que fará o roteamento das páginas

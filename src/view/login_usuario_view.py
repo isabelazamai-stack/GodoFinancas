@@ -11,7 +11,7 @@ class LoginUsuarioView(ft.View):
         self.route = "/login"
 
         self.title = ""
-        self.bgcolor = "#FFF6C0"
+        self.bgcolor = "#fde2e4"
         self.horizontal_alignment = "center"
         self.vertical_alignment = "center"
         self.height = 800 #altura da janela
@@ -30,8 +30,8 @@ class LoginUsuarioView(ft.View):
         
 
         self.campo_usuario = ft.TextField(label = "Usuário:",
-                                        bgcolor = "#fcc2cf",
-                                        border_color= "#ff92ad",
+                                        bgcolor = "#dbe7e4",
+                                        border_color= "#c5dedc",
                                         border_width= 3,
                                         value = "")
 
@@ -39,8 +39,8 @@ class LoginUsuarioView(ft.View):
         self.campo_senha = ft.TextField(label = "Senha:",
                                         password = True,
                                         can_reveal_password = True,
-                                        bgcolor = "#fcc2cf",
-                                        border_color= "#ff92ad",
+                                        bgcolor = "#dbe7e4",
+                                        border_color= "#c5dedc",
                                         border_width= 3,
                                         value = "")
 
@@ -49,7 +49,7 @@ class LoginUsuarioView(ft.View):
                         width= 140,
                         height= 45,
                         color= "#000000",
-                        bgcolor= "#FFE59D",
+                        bgcolor= "#fad2e1",
                         on_click=self.ir_para_login
                         )
 
@@ -62,7 +62,7 @@ class LoginUsuarioView(ft.View):
                                 width= 140,
                                 height= 45,
                                 color= "#000000",
-                                bgcolor= "#FFE59D",
+                                bgcolor= "#fad2e1",
                                 on_click=self.ir_para_cadastrar
                                 )
 
