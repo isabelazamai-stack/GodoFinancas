@@ -11,7 +11,7 @@ class PaginaUsuarioView(ft.View):
         self.route = "/login"
 
         self.title = ""
-        self.bgcolor = "#FFF6C0"
+        self.bgcolor = "#dbe7e4"
         self.horizontal_alignment = "center"
         self.vertical_alignment = "center"
         self.height = 800 #altura da janela
