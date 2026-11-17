@@ -25,10 +25,9 @@ class Categoria:
             return id_categoria
         
         except Exception as e:
-            print(f"Errro em cadastrar: {e}")
+            print(f"Erro em cadastrar: {e}")
             return False
         
-
 
     @staticmethod
     def excluir (id_categoria: int) -> bool:
