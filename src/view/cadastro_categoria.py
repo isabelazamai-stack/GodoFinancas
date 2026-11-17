@@ -32,11 +32,11 @@ class CadastroCategoriaView(ft.View):
                                     color="#000000",
                                     )
 
+
         self.lista_categorias = []
-
         coluna_lista_categorias = ft.Column(controls=self.lista_categorias)
-
         titulo_lista = ft.Text(value="CATEGORIAS CADASTRADAS")
+        self.atualizar_lista_categoria()
         
 
         self.controls =[self.title,
@@ -50,13 +50,13 @@ class CadastroCategoriaView(ft.View):
         resultado = Categoria().adicionar(nome_categoria, self.id_usuario)
 
         if resultado:
-            self.page.show_dialog(ft.SnackBar(ft.Text("Categoria Cadastrada com sucesso!"),
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Categoria Cadastrada com sucesso!"),
                                                         bgcolor="#9fb67b"))
         else:
-            self.page.show_dialog(ft.SnackBar(ft.Text("Cadastro Categoria não efetuada!"),
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro Categoria não efetuada!"),
                                                         bgcolor = "#ff9191"))
+        self.atualizar_lista_categorias()
             
-            self.pagina.update()
 
     def atualizar_lista_categoria(self):
         categorias = Categoria().recuperar_todos(self.id_usuario)
@@ -65,4 +65,4 @@ class CadastroCategoriaView(ft.View):
             nome_categoria = categoria.get("nome")
             texto = ft.Text(value = nome_categoria)
             self.lista_categorias.append(texto)
-        self.page.update()
+        self.pagina.update()
