@@ -16,7 +16,7 @@ class CadastroCategoriaView(ft.View):
         self.id_usuario = dados_usuario.get("id_usuario")
 
         self.title = ft.Text(value="Cadastre as Categoria",
-                             color="#ff619b",
+                             color="#5c321f",
                              font_family="Georgia",
                              size=30)
 
@@ -24,21 +24,26 @@ class CadastroCategoriaView(ft.View):
                                 width= 140,
                                 height= 45,
                                 color= "#000000",
-                                bgcolor= "#ff8ab5",
+                                bgcolor= "#cc9b85",
                                 on_click = self.cadastrar_categoria)
 
         self.nome_cat = ft.TextField(label = "Nome da Categoria",
-                                    bgcolor="#ffcbde",
+                                    bgcolor="#cc9b85",
                                     color="#000000",
                                     )
 
-        self.historico = []
-        self.coluna = ft.Column(controls = self.historico)
+        self.lista_categorias = []
+
+        coluna_lista_categorias = ft.Column(controls=self.lista_categorias)
+
+        titulo_lista = ft.Text(value="CATEGORIAS CADASTRADAS")
+        
 
         self.controls =[self.title,
                         self.nome_cat,
                         self.botao_adicionar,
-                        self.coluna]
+                        titulo_lista,
+                        coluna_lista_categorias]
 
     def cadastrar_categoria(self):
         nome_categoria = self.nome_cat.value
@@ -53,4 +58,11 @@ class CadastroCategoriaView(ft.View):
             
             self.pagina.update()
 
-        
+    def atualizar_lista_categoria(self):
+        categorias = Categoria().recuperar_todos(self.id_usuario)
+
+        for categoria in categorias:
+            nome_categoria = categoria.get("nome")
+            texto = ft.Text(value = nome_categoria)
+            self.lista_categorias.append(texto)
+        self.page.update()

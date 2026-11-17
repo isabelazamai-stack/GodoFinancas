@@ -12,7 +12,7 @@ class TelaPrincipal(ft.View):
         nome_usuario = dados_usuario.get("usuario")
 
         self.title = ""
-        self.bgcolor = "#67ffd9"
+        self.bgcolor = "#d9fff5"
         self.horizontal_alignment = "center"
         self.vertical_alignment = "center"
         self.height = 800 #altura da janela
