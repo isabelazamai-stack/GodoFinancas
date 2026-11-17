@@ -29,8 +29,7 @@ class CadastroCategoriaView(ft.View):
 
         self.nome_cat = ft.TextField(label = "Nome da Categoria",
                                     bgcolor="#cc9b85",
-                                    color="#000000",
-                                    )
+                                    color="#FFFFFF")
 
 
         self.lista_categorias = []
@@ -57,13 +56,45 @@ class CadastroCategoriaView(ft.View):
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro Categoria não efetuada!"),
                                                         bgcolor = "#ff9191"))
         self.atualizar_lista_categoria()
-            
+
+
 
     def atualizar_lista_categoria(self):
-        categorias = Categoria().recuperar_todos(self.id_usuario)
+            categorias = Categoria().recuperar_todos(self.id_usuario)
 
-        for categoria in categorias:
-            nome_categoria = categoria.get("nome")
-            texto = ft.Text(value = nome_categoria)
-            self.lista_categorias.append(texto)
-        self.pagina.update()
+            self.lista_categorias.clear()
+    
+            for categoria in categorias:
+                nome_categoria = categoria.get("nome")
+                id_categoria = categoria.get("id_categoria")
+                apagar = ft.FloatingActionButton(icon=ft.Icons.DELETE,
+                                                 bgcolor="#ffffff",
+                                                 on_click=lambda e, id_cat=id_categoria:self.excluir_categoria(id_cat))
+                texto = ft.Text(value = nome_categoria)
+                linha_historico = ft.Row(controls=[texto,apagar])
+                self.lista_categorias.append(linha_historico)
+    
+            self.pagina.update()
+    
+    
+    def excluir_categoria(self, id_categoria):
+            
+            resultado = Categoria().excluir(id_categoria)
+            
+            if resultado:
+                self.pagina.show_dialog(
+                ft.SnackBar(
+                    ft.Text("Categoria excluída com sucesso!"),
+                    bgcolor="#9fb67b"))
+                self.atualizar_lista_categoria()
+            else:
+                self.pagina.show_dialog(
+                ft.SnackBar(
+                    ft.Text("Categoria não efetuada!"),
+                    bgcolor="#ff9191"))
+
+
+    
+
+
+    

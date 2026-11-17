@@ -11,7 +11,7 @@ class LoginUsuarioView(ft.View):
         self.route = "/login"
 
         self.title = ""
-        self.bgcolor = "#fff9e4"
+        self.bgcolor = "#ffeeee"
         self.horizontal_alignment = "center"
         self.vertical_alignment = "center"
         self.height = 800 #altura da janela
