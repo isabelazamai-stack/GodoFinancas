@@ -12,7 +12,7 @@ class CadastroUsuarioView(ft.View):
 
 
         self.title = ""
-        self.bgcolor = "#fde2e4"
+        self.bgcolor = "#fff9e4"
         self.horizontal_alignment = "center"
         self.vertical_alignment = "center"
         self.height = 800 #altura da janela

@@ -52,10 +52,11 @@ class CadastroCategoriaView(ft.View):
         if resultado:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Categoria Cadastrada com sucesso!"),
                                                         bgcolor="#9fb67b"))
+            self.lista_categorias.clear()
         else:
             self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro Categoria não efetuada!"),
                                                         bgcolor = "#ff9191"))
-        self.atualizar_lista_categorias()
+        self.atualizar_lista_categoria()
             
 
     def atualizar_lista_categoria(self):

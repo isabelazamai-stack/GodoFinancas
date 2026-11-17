@@ -9,7 +9,7 @@ class VisualizarDespesaView(ft.View):
         self.route = "/todasdespesas"
 
         self.title = ""
-        self.bgcolor = "#dbe7e4"
+        self.bgcolor = "#fff9e4"
         self.horizontal_alignment = "center"
         self.vertical_alignment = "center"
         self.height = 800 #altura da janela
