@@ -20,7 +20,6 @@ class AdicionarDespesaView(ft.View):
                         color="#000000",
                         font_family="Georgia")
 
-        self.controls =[titulo
-                        ]
+        self.controls =[titulo]
 
 
