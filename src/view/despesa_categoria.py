@@ -6,7 +6,7 @@ class DespesaPorCategoria(ft.View):
 
         self.pagina = pagina
 
-        self.route = "/despesaCategoria"
+        self.route = "/despesacategoria"
 
         self.title = ""
         self.bgcolor = "#fff9e4"
@@ -17,7 +17,7 @@ class DespesaPorCategoria(ft.View):
 
         titulo = ft.Text(value = "Despesas Por categoria",
                         size=30,
-                        color="#000000",
+                        color="#5c321f",
                         font_family="Georgia")
 
         self.controls =[titulo

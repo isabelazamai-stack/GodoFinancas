@@ -2,7 +2,7 @@ import flet as ft
 from src.view.cadastro_usuario_view import CadastroUsuarioView
 from src.view.login_usuario_view import LoginUsuarioView
 from src.view.cadastro_categoria import CadastroCategoriaView
-from src.view.add_despesa import AdicionarDespesaView
+from src.view.add_despesa_view import AdicionarDespesaView
 from src.view.todas_despesas import VisualizarDespesaView
 from src.view.tela_principal import TelaPrincipal
 from src.view.despesa_categoria import DespesaPorCategoria
@@ -15,11 +15,11 @@ def main(pagina:ft.Page):
         if item_clicado == 0:
             pagina.navigate("/cadastrocategoria")
         elif item_clicado == 1:
-            pagina.navigate("/despesa")
+            pagina.navigate("/adicionardespesa")
         elif item_clicado == 2:
             pagina.navigate("/todasdespesas")
         elif item_clicado == 3:
-            pagina.navigate("/despesaCategoria")
+            pagina.navigate("/despesacategoria")
         elif item_clicado == 4:
             pagina.navigate("/login")
     barra_navegacao = ft.NavigationRail(
@@ -79,7 +79,7 @@ def main(pagina:ft.Page):
             expand=True)]
             pagina.views.append(cadastro_categoria)
 
-        elif pagina.route == "/despesa":
+        elif pagina.route == "/adicionardespesa":
             adicionar_despesa = AdicionarDespesaView(pagina)
             conteudo = adicionar_despesa.controls
 
@@ -109,7 +109,7 @@ def main(pagina:ft.Page):
             expand=True)]
             pagina.views.append(visualizar_despesas)
 
-        elif pagina.route == "/despesaCategoria":
+        elif pagina.route == "/despesacategoria":
             despesa_categoria = DespesaPorCategoria(pagina)
             conteudo = despesa_categoria.controls
 
