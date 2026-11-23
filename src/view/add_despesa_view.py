@@ -50,7 +50,7 @@ class AdicionarDespesaView(ft.View):
                                            bgcolor="#ffe4d9")
 
         botao_adicionar = ft.Button(content="Cadastrar",
-                                    bgcolor="#6d4231",
+                                    bgcolor="#ffe4d9",
                                     on_click=self.cadastrar_despesa)
 
 
