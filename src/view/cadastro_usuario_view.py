@@ -83,6 +83,10 @@ class CadastroUsuarioView(ft.View):
     def cadastrar(self):
         usuario = self.campo_usuario.value
         senha = self.campo_senha.value
+
+        if usuario == "" or senha == "":
+            self.pagina.show_dialog(ft.SnackBar(content="Preencha todos os campos!", bgcolor="#b5fffb"))
+            return
       
         resultado = Usuario().cadastrar(usuario , senha)
 

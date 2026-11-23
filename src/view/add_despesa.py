@@ -1,3 +1,4 @@
+from src.database.conexao import Conexao
 import flet as ft
 
 class AdicionarDespesaView(ft.View):
@@ -21,5 +22,7 @@ class AdicionarDespesaView(ft.View):
                         font_family="Georgia")
 
         self.controls =[titulo]
+
+    
 
 
