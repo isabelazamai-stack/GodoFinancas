@@ -1,3 +1,5 @@
+from src.model.despesa_model import Despesa
+
 import flet as ft
 
 class VisualizarDespesaView(ft.View):
@@ -18,7 +20,9 @@ class VisualizarDespesaView(ft.View):
         titulo = ft.Text(value = "Visualize suas despesas",
                         size=30,
                         color="#5c321f",
-                        font_family="Georgia")
+                        font_family="Georgia",
+                        text_align="center")
 
-        self.controls =[titulo
-                        ]
+        self.controls =[titulo]
+
+        

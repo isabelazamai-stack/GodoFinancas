@@ -20,5 +20,4 @@ class DespesaPorCategoria(ft.View):
                         color="#5c321f",
                         font_family="Georgia")
 
-        self.controls =[titulo
-                        ]
+        self.controls =[titulo]
