@@ -17,12 +17,31 @@ class VisualizarDespesaView(ft.View):
         self.height = 800 #altura da janela
         self.width = 1000 # largura da janela
 
+        dados_usuario = pagina.session.store.get("usuario_logado")
+        self.id_usuario = dados_usuario.get("id_usuario")
+
         titulo = ft.Text(value = "Visualize suas despesas",
                         size=30,
                         color="#5c321f",
                         font_family="Georgia",
                         text_align="center")
+        
+        lista_despesas = []
+        
+        tabela = ft.DataTable(columns=[ft.DataColumn(label="ID DA CATEGORIA"),
+                                       ft.DataColumn(label="DESCRIÇÃO"),
+                                       ft.DataColumn(label="CATEGORIA"),
+                                       ft.DataColumn(label="VALOR"),
+                                       ft.DataColumn(label="DATA")],
+                                       rows=lista_despesas)
+        
 
-        self.controls =[titulo]
+        self.controls =[titulo,
+                        tabela]
+
 
         
+    
+
+
+
