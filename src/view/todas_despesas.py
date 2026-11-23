@@ -17,7 +17,7 @@ class VisualizarDespesaView(ft.View):
 
         titulo = ft.Text(value = "Visualize suas despesas",
                         size=30,
-                        color="#000000",
+                        color="#5c321f",
                         font_family="Georgia")
 
         self.controls =[titulo

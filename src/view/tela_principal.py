@@ -18,7 +18,7 @@ class TelaPrincipal(ft.View):
         self.height = 800 #altura da janela
         self.width = 1000 # largura da janela
 
-        titulo = ft.Text(value = f"Seja Bem-Vindo(a) {nome_usuario}",
+        titulo = ft.Text(value = f"Seja Bem-Vindo(a) {nome_usuario}!",
                         size=30,
                         color="#000000",
                         font_family="Georgia")
