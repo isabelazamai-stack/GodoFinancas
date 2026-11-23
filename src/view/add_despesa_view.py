@@ -1,5 +1,6 @@
 from src.model.categoria_model import Categoria
 from src.model.despesa_model import Despesa
+from datetime import datetime
 import flet as ft
 
 class AdicionarDespesaView(ft.View):
@@ -25,13 +26,16 @@ class AdicionarDespesaView(ft.View):
                         color="#5c321f",
                         font_family="Georgia")
         
-        campo_descricao = ft.TextField(label="Descrição")
+        self.campo_descricao = ft.TextField(label="Descrição",
+                                            bgcolor="#ffe4d9")
 
-        campo_valor = ft.TextField(label="Valor",
-                                   keyboard_type=ft.KeyboardType.NUMBER)
+        self.campo_valor = ft.TextField(label="Valor",
+                                   keyboard_type=ft.KeyboardType.NUMBER,
+                                   bgcolor="#ffe4d9")
         
-        campo_data = ft.TextField(label="Data",
-                                  keyboard_type=ft.KeyboardType.DATETIME)
+        self.campo_data = ft.TextField(label="Data",
+                                  keyboard_type=ft.KeyboardType.DATETIME,
+                                  bgcolor="#ffe4d9")
         
 
         categorias = Categoria().recuperar_todos(self.id_usuario)
@@ -39,20 +43,45 @@ class AdicionarDespesaView(ft.View):
         opcoes = []
 
         for categoria in categorias:
-            opcoes.append(ft.DropdownOption(key=categoria.get("id-categoria"),
+            opcoes.append(ft.DropdownOption(key=categoria.get("id_categoria"),
                                             text=categoria.get("nome")))
 
-        campo_categoria = ft.Dropdown(options=opcoes)
+        self.campo_categoria = ft.Dropdown(options=opcoes,
+                                           bgcolor="#ffe4d9")
 
-        botao_adicionar = ft.Button(content="Cadastrar")
+        botao_adicionar = ft.Button(content="Cadastrar",
+                                    bgcolor="#6d4231",
+                                    on_click=self.cadastrar_despesa)
 
 
         self.controls =[titulo,
-                        campo_descricao,
-                        campo_valor,
-                        campo_data,
-                        campo_categoria,
+                        self.campo_descricao,
+                        self.campo_valor,
+                        self.campo_data,
+                        self.campo_categoria,
                         botao_adicionar]
+        
+    def cadastrar_despesa(self):
+        #puxando os valores
+        descricao = self.campo_descricao.value
+        valor = self.campo_valor.value
+        data = self.campo_data.value
+        data_convertida = datetime.strptime(data, "%d/%m/%Y").date()
+        categoria = int(self.campo_categoria.value)
+
+        #enviando para banco de dados
+        resultado = Despesa().incluir(self.id_usuario,categoria,descricao,valor,data_convertida)
+        if resultado:
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Categoria Cadastrada com sucesso!"),
+                                                        bgcolor="#9fb67b"))
+        else:
+            self.pagina.show_dialog(ft.SnackBar(ft.Text("Cadastro Categoria não efetuada!"),
+                                                        bgcolor = "#ff9191"))
+        self.page.update()
+        
+        
+    
+
         
          
 
