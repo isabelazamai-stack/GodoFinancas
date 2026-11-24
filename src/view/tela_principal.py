@@ -13,8 +13,6 @@ class TelaPrincipal(ft.View):
 
         self.title = ""
         self.bgcolor = "#d9fff5"
-        self.horizontal_alignment = "center"
-        self.vertical_alignment = "center"
 
         titulo = ft.Text(value = f"Seja Bem-Vindo(a) {nome_usuario}!",
                         size=30,

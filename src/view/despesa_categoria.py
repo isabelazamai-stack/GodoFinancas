@@ -10,8 +10,6 @@ class DespesaPorCategoria(ft.View):
 
         self.title = ""
         self.bgcolor = "#fff9e4"
-        self.horizontal_alignment = "center"
-        self.vertical_alignment = "center"
 
         titulo = ft.Text(value = "Despesas Por categoria",
                         size=30,
