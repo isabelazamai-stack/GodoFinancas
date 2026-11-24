@@ -12,8 +12,6 @@ class DespesaPorCategoria(ft.View):
         self.bgcolor = "#fff9e4"
         self.horizontal_alignment = "center"
         self.vertical_alignment = "center"
-        self.height = 800 #altura da janela
-        self.width = 1000 # largura da janela
 
         titulo = ft.Text(value = "Despesas Por categoria",
                         size=30,

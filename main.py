@@ -23,6 +23,7 @@ def main(pagina:ft.Page):
         elif item_clicado == 4:
             pagina.navigate("/login")
     barra_navegacao = ft.NavigationRail(
+        bgcolor="#faeded",
         selected_index=0,
         label_type=ft.NavigationRailLabelType.ALL,
         group_alignment=0.0,
