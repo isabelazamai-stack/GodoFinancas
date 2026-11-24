@@ -5,7 +5,7 @@ from src.view.cadastro_categoria import CadastroCategoriaView
 from src.view.add_despesa_view import AdicionarDespesaView
 from src.view.todas_despesas import VisualizarDespesaView
 from src.view.tela_principal import TelaPrincipal
-from src.view.despesa_categoria import DespesaPorCategoria
+from src.view.despesas_por_categoria import DespesaPorCategoria
 
 
 def main(pagina:ft.Page):
