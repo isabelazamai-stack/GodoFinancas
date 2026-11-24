@@ -13,10 +13,6 @@ class AdicionarDespesaView(ft.View):
 
         self.title = ""
         self.bgcolor = "#fff9e4"
-        self.horizontal_alignment = "center"
-        self.vertical_alignment = "center"
-        self.height = 800 #altura da janela
-        self.width = 1000 # largura da janela
 
         dados_usuario = pagina.session.store.get("usuario_logado")
         self.id_usuario = dados_usuario.get("id_usuario")

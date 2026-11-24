@@ -38,9 +38,10 @@ class Despesa:
             return None
         try:
             cursor.execute("""
-                            SELECT id_usuario, valor, data_despesa, descricao, id_categoria
+                           SELECT id_despesa, tb_despesas.id_usuario, valor,  data_despesa, descricao, tb_despesas.id_categoria, tb_categoria.nome
                             FROM tb_despesas
-                            WHERE id_usuario = %s
+                            INNER JOIN tb_categoria ON tb_categoria.id_categoria = tb_despesas.id_categoria
+                            WHERE tb_despesas.id_usuario = %s;
                             """,
                             [login])
                 

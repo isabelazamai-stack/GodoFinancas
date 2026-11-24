@@ -5,8 +5,6 @@ class CadastroCategoriaView(ft.View):
     def __init__(self, pagina:ft.Page):
         super().__init__()
         
-        self.height = 800 #altura da janela
-        self.width = 1000 # largura da janela
         self.pagina = pagina
         self.bgcolor = "#fff9e4"
         self.route = "/cadastrocategoria"
@@ -24,11 +22,11 @@ class CadastroCategoriaView(ft.View):
                                 width= 140,
                                 height= 45,
                                 color= "#000000",
-                                bgcolor= "#cc9b85",
+                                bgcolor= "#ffe4d9",
                                 on_click = self.cadastrar_categoria)
 
         self.nome_cat = ft.TextField(label = "Nome da Categoria",
-                                    bgcolor="#cc9b85",
+                                    bgcolor="#ffe4d9",
                                     color="#FFFFFF")
 
 
